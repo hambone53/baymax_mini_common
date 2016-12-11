@@ -1,3 +1,5 @@
+<!-- Launch file for starting up communication with ardruino base -->
+
 <launch>
   <!-- initial launch file to get the rosserial node running on local bot board -->
   <node pkg="rosserial_server" type="serial_node" name="rosserial_server">

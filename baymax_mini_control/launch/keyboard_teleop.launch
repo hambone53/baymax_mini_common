@@ -1,3 +1,5 @@
+<!-- Keyboard_teleop.launch is used to start up ROSserial for base communication and starts keyboard. -->
+
 <launch>
   <!-- initial launch file to get the rosserial node running on local bot board -->
   <node pkg="rosserial_server" type="serial_node" name="rosserial_server">

@@ -9,7 +9,7 @@
 
 	<!-- Start up the freenect driver to start publishing kinnect -->
   <include file="$(find baymax_mini_control)/launch/start_laser.launch">
-	</includ>
+	</include>
 
   <!-- differential_teleop_key already has its own built in velocity smoother -->
   <node pkg="baymax_mini_control" type="diff_wheeled_robot_key" name="diff_wheeled_robot_key"  output="screen">

@@ -1,13 +1,13 @@
-<!-- 
+<!--
   Turtlebot is a bit low on horsepower...
 
   We use openni_camera here, turn everything on by default
   (allows the user to conveniently see everything when
-  launching this on its own - use with 
+  launching this on its own - use with
   turtebot_rviz_launchers/view_robot.launch to visualise)
   and provide args to disable them so you can optimise the
   horsepower for your application.
-  
+
   For an example of disabling processing modules, check
   any of the turtlebot_core_apps (e.g. android_make_a_map.launch
   only enables scan_processing for depthimage_to_laserscan and
@@ -25,12 +25,12 @@
   <arg unless="$(arg depth_registration)" name="depth" value="depth" />
 
   <!-- Processing Modules -->
-  <arg name="rgb_processing"                  default="true"/>
-  <arg name="ir_processing"                   default="true"/>
+  <arg name="rgb_processing"                  default="false"/>
+  <arg name="ir_processing"                   default="false"/>
   <arg name="depth_processing"                default="true"/>
   <arg name="depth_registered_processing"     default="true"/>
-  <arg name="disparity_processing"            default="true"/>
-  <arg name="disparity_registered_processing" default="true"/>
+  <arg name="disparity_processing"            default="false"/>
+  <arg name="disparity_registered_processing" default="false"/>
   <arg name="scan_processing"                 default="true"/>
 
   <!-- Worker threads for the nodelet manager -->
@@ -42,7 +42,7 @@
  <include file="$(find freenect_launch)/launch/freenect.launch">
  </include>
 
-   <!--                        Laserscan 
+   <!--                        Laserscan
      This uses lazy subscribing, so will not activate until scan is requested.
    -->
 

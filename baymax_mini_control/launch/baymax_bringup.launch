@@ -7,6 +7,16 @@
     <param name="baud" value="115200"/>
   </node>
 
+  <!-- Create a static link between the base and the kinect camera
+  static_transform_publisher x y z qx qy qz qw frame_id child_frame_id  period_in_ms
+
+  Publish a static coordinate transform to tf using an x/y/z offset in meters
+  and quaternion. The period, in milliseconds, specifies how often to send
+  a transform. 100ms (10hz) is a good value.-->
+
+  <node pkg="tf" type="static_transform_publisher"  name="base_to_scan_broadcaster"
+     args="0 0 0 0 0 0 base_link  camera_link 200" />
+
 	<!-- Start up the freenect driver to start publishing kinnect -->
   <include file="$(find baymax_mini_control)/launch/start_laser.launch">
 	</include>

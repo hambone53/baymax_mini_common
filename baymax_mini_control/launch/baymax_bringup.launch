@@ -18,12 +18,21 @@
   and quaternion. The period, in milliseconds, specifies how often to send
   a transform. 100ms (10hz) is a good value.-->
 
+  <!-- For Kinect -->
+  <!--<node pkg="tf" type="static_transform_publisher"  name="base_to_scan_broadcaster"
+     args="0 0 0 0 0 0 base_link  camera_link 1000" />-->
+
+  <!-- For SWEEP -->
   <node pkg="tf" type="static_transform_publisher"  name="base_to_scan_broadcaster"
-     args="0 0 0 0 0 0 base_link  camera_link 1000" />
+     args="0 0 0 0 0 0 base_link  laser_frame 1000" />
 
 	<!-- Start up the freenect driver to start publishing kinnect -->
-  <include file="$(find baymax_mini_control)/launch/start_laser.launch">
-	</include>
+  <!--<include file="$(find baymax_mini_control)/launch/start_laser.launch">
+</include>-->
+
+  <!-- Start up the sweep scanner -->
+  <include file="$(find baymax_mini_control)/launch/sweep2scan.launch">
+  </include>
 
   <!-- Start up Gmapping for bot -->
   <include file="$(find baymax_mini_control)/launch/gmapping.launch.xml">
